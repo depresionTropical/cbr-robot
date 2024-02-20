@@ -2,21 +2,24 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8">
-        
-        <VideoPlayer :videoEmbedUrl="selectedVideo ? selectedVideo.embedUrl : ''" />
+        <VideoPlayer
+          :videoEmbedUrl="selectedVideo ? selectedVideo.embedUrl : ''"
+        />
       </div>
       <div class="col-lg-4 mt-3 mt-lg-0">
         <div class="row">
           <div class="col">
             <div class="alert fs-5" role="alert">
-      Contempla el video a continuación y redacta en el campo de texto las instrucciones en un lenguaje fácil de entender, permitiendo al robot ejecutar la acción correspondiente.
-    </div>
+              Observa el video a continuación y describe, en el campo de texto,
+              las instrucciones de manera sencilla para que el robot pueda
+              llevar a cabo la acción mostrada en el video
+            </div>
             <TextInput v-model="text" />
           </div>
         </div>
         <div class="row mt-3">
           <div class="col">
-            <SubmitButton @click="submit" />
+            <SubmitButton :disabled="!isSubmitEnabled" @click="submit" />
           </div>
         </div>
       </div>
@@ -45,11 +48,13 @@ export default {
   },
   data() {
     return {
+      isSubmitEnabled: false,
       videoList: [
         {
           id: 1,
           title: "Video 1",
-          embedUrl: "https://www.youtube.com/embed/8LcQa0EZdGA?si=3EzUfCeFrxkWU3UB",
+          embedUrl:
+            "https://www.youtube.com/embed/8LcQa0EZdGA?si=3EzUfCeFrxkWU3UB",
         },
         {
           id: 2,
@@ -84,8 +89,9 @@ export default {
       ],
       selectedVideo: {
         id: 1,
-          title: "Video 1",
-          embedUrl: "https://www.youtube.com/embed/8LcQa0EZdGA?si=3EzUfCeFrxkWU3UB",
+        title: "Video 1",
+        embedUrl:
+          "https://www.youtube.com/embed/8LcQa0EZdGA?si=3EzUfCeFrxkWU3UB",
       },
       text: "",
       userId: null,
@@ -95,6 +101,9 @@ export default {
     this.generateUserId();
   },
   methods: {
+    updateSubmitButtonState() {
+      this.isSubmitEnabled = this.text.trim() !== ""; // Habilita si hay texto
+    },
     generateUserId() {
       // Genera un ID de usuario aleatorio
       this.userId = Date.now() + Math.floor(Math.random() * 1000);
