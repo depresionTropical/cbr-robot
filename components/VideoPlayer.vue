@@ -19,8 +19,8 @@ export default {
 
 <style>
 .video-player iframe {
-  margin-left: 20px;
-  width: 50%;
-  height: 500px; /* Ajusta el tamaño según sea necesario */
+
+  width: 1300px;
+  height: 500px; 
 }
 </style>
