@@ -1,17 +1,25 @@
-<!-- pages/index.vue -->
 <template>
   <div class="container">
-    <div class="row align-items-center">
-      <VideoPlayer
-        class="col"
-        :videoEmbedUrl="selectedVideo ? selectedVideo.embedUrl : ''"
-      />
+    <div class="row">
+      <div class="col-lg-8">
+        
+        <VideoPlayer :videoEmbedUrl="selectedVideo ? selectedVideo.embedUrl : ''" />
+      </div>
+      <div class="col-lg-4 mt-3 mt-lg-0">
+        <div class="row">
+          <div class="col">
+            <div class="alert fs-5" role="alert">
+      Contempla el video a continuación y redacta en el campo de texto las instrucciones en un lenguaje fácil de entender, permitiendo al robot ejecutar la acción correspondiente.
     </div>
-    <div class="row align-items-center">
-      <TextInput class="col" v-model="text" />
-    </div>
-    <div class="row align-items-center">
-      <SubmitButton class="col" @click="submit" />
+            <TextInput v-model="text" />
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <SubmitButton @click="submit" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -138,3 +146,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.instructions {
+  font-size: 35px;
+  margin-bottom: 15px;
+  padding: 10px; /* Agrega un relleno para resaltar */
+  background-color: #f8d7da; /* Cambia el color de fondo a uno llamativo */
+  border: 1px solid #f5c6cb; /* Agrega un borde para resaltar aún más */
+  border-radius: 5px; /* Agrega esquinas redondeadas */
+}
+</style>

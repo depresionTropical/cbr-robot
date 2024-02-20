@@ -17,10 +17,23 @@ export default {
 };
 </script>
 
-<style>
-.video-player iframe {
+<style scoped>
+.video-player {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Proporción 16:9 para hacer que el contenedor sea responsive */
+}
 
-  width: 1300px;
-  height: 500px; 
+.video-player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.instructions {
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 </style>
