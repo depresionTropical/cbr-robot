@@ -29,7 +29,7 @@ export default {
         { id: 1, title: 'Video 1', embedUrl: 'https://www.youtube.com/watch?v=NgWfVITgPnI' },
         // Agrega más videos según sea necesario
       ],
-      selectedVideo: null,
+      selectedVideo: { id: 1, title: 'Video 1', embedUrl: 'https://www.youtube.com/embed/NgWfVITgPnI' },
       text: '',
     };
   },
