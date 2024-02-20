@@ -1,21 +1,22 @@
 <!-- pages/index.vue -->
 <template>
-  <div>
-    <VideoPlayer :videoEmbedUrl="selectedVideo ? selectedVideo.embedUrl : ''" />
-    <TextInput v-model="text" />
-    <SubmitButton @submit="submit" />
-    <ul>
-      <li v-for="video in videoList" :key="video.id">
-        <button @click="selectVideo(video)">{{ video.title }}</button>
-      </li>
-    </ul>
+  <div class="container">
+    <div class="row">
+      
+        <VideoPlayer
+          :videoEmbedUrl="selectedVideo ? selectedVideo.embedUrl : ''"
+        />
+        <TextInput v-model="text" />
+        <SubmitButton @submit="submit" />
+      
+    </div>
   </div>
 </template>
 
 <script>
-import VideoPlayer from '~/components/VideoPlayer.vue';
-import TextInput from '~/components/TextInput.vue';
-import SubmitButton from '~/components/SubmitButton.vue';
+import VideoPlayer from "~/components/VideoPlayer.vue";
+import TextInput from "~/components/TextInput.vue";
+import SubmitButton from "~/components/SubmitButton.vue";
 
 export default {
   components: {
@@ -26,11 +27,22 @@ export default {
   data() {
     return {
       videoList: [
-        { id: 1, title: 'Video 1', embedUrl: 'https://www.youtube.com/watch?v=NgWfVITgPnI' },
+        {
+          id: 1,
+          title: "Video 1",
+          embedUrl: "https://www.youtube.com/watch?v=NgWfVITgPnI",
+          id: 2,
+          title: "Video 2",
+          embedUrl: "https://youtu.be/fsxVo6WqI8w?si=-H7V8LTMlt6JFGJX",
+        },
         // Agrega más videos según sea necesario
       ],
-      selectedVideo: { id: 1, title: 'Video 1', embedUrl: 'https://www.youtube.com/embed/NgWfVITgPnI' },
-      text: '',
+      selectedVideo: {
+        id: 1,
+        title: "Video 1",
+        embedUrl: "https://www.youtube.com/embed/NgWfVITgPnI",
+      },
+      text: "",
     };
   },
   methods: {
@@ -39,8 +51,8 @@ export default {
     },
     submit() {
       // Lógica para enviar el texto
-      console.log('Texto enviado:', this.text);
+      console.log("Texto enviado:", this.text);
     },
   },
-}
+};
 </script>
