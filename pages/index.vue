@@ -77,7 +77,7 @@ export default {
       this.selectedVideo = video;
     },
     submit() {
-      const apiUrl = "http://127.0.0.1:8000/crear-video-response/"; // Reemplaza "API_URL" con la URL de tu API
+      const apiUrl = "https://backrobotcbr.onrender.com/crear-video-response/"; // Reemplaza "API_URL" con la URL de tu API
       console.log("URL de la API:", process.env.API_URL);
       const data = {
         user_id: parseInt(this.userId), // Asegúrate de que userId sea un número
