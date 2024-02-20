@@ -1,19 +1,18 @@
 <template>
- <div>
-        <button type="button" class="btn btn-outline-success" @click="submit">
-          Enviar
-        </button>
-      </div>
-
+  <div>
+    <button type="button" class="btn btn-outline-success" @click="submit">
+      Enviar
+    </button>
+  </div>
 </template>
-  
-  <script>
+
+<script>
 export default {
   methods: {
     submit() {
-      this.$emit("submit", this.text);
+      // Emite el evento `submit` al hacer clic en el botón
+      this.$emit("submit");
     },
   },
 };
 </script>
-  

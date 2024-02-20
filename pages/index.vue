@@ -2,13 +2,11 @@
 <template>
   <div class="container">
     <div class="row">
-      
-        <VideoPlayer
-          :videoEmbedUrl="selectedVideo ? selectedVideo.embedUrl : ''"
-        />
-        <TextInput v-model="text" />
-        <SubmitButton @submit="submit" />
-      
+
+      <VideoPlayer :videoEmbedUrl="selectedVideo ? selectedVideo.embedUrl : ''" />
+      <TextInput v-model="text" />
+      <SubmitButton @submit="submit" />
+
     </div>
   </div>
 </template>
@@ -33,7 +31,7 @@ export default {
           embedUrl: "https://www.youtube.com/watch?v=NgWfVITgPnI",
           id: 2,
           title: "Video 2",
-          embedUrl: "https://youtu.be/fsxVo6WqI8w?si=-H7V8LTMlt6JFGJX",
+          embedUrl: "https://www.youtube.com/embed/fsxVo6WqI8w?si=utBEkBHGResAe0Zi",
         },
         // Agrega más videos según sea necesario
       ],
@@ -50,8 +48,15 @@ export default {
       this.selectedVideo = video;
     },
     submit() {
-      // Lógica para enviar el texto
       console.log("Texto enviado:", this.text);
+
+      const currentIndex = this.videoList.findIndex(video => video.id === this.selectedVideo.id);
+      const nextIndex = (currentIndex + 1) % this.videoList.length;
+
+      this.selectedVideo = this.videoList[nextIndex];
+
+      // Reinicia el texto si es necesario
+      this.text = " ";
     },
   },
 };
