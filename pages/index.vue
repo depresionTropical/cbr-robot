@@ -72,7 +72,7 @@ export default {
     if (nextIndex === 0) {
       // Si nextIndex es 0, significa que hemos llegado al final de la lista
       // Aquí puedes mostrar un mensaje indicando que el usuario ha visto todos los videos
-      alert("¡Has visto todos los videos!");
+      alert("¡Has visto todos los videos!\n Refresca la página para volver a empezar.");
       // También puedes reiniciar la lista de videos si quieres que comience desde el principio nuevamente
       // this.selectedVideo = this.videoList[0];
     } else {
